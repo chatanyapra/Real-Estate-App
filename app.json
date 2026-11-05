@@ -4,7 +4,7 @@
     "slug": "Native-App-1",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/auramicimage.png",
     "scheme": "nativeapp1",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -29,10 +29,12 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/auramicimage.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      "@clerk/expo",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
