@@ -1,9 +1,25 @@
-import { Text, View } from 'react-native'
+import { useAuth } from '@clerk/expo';
+import { useRouter } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Profile() {
+    const { signOut } = useAuth();
+    const router = useRouter();
+    const handleSignOut = async () => {
+        try {
+            await signOut();
+            router.replace("/(auth)/sign-in");
+        } catch (error) {
+            console.error("Error signing out:", error);
+        }
+    }
     return (
-        <View className='flex-1 justify-center items-center'>
+        <SafeAreaView>
             <Text>Profile</Text>
-        </View>
+            <TouchableOpacity onPress={handleSignOut}>
+                <Text>SignOut</Text>
+            </TouchableOpacity>
+        </SafeAreaView>
     )
 }

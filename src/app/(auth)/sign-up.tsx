@@ -20,7 +20,7 @@ export default function SignUp() {
         return null;
     }
 
-    const onSignupPress = async () => {
+    const onSignUpPress = async () => {
         const { error } = await signUp.password({
             emailAddress: email,
             password,
@@ -156,7 +156,7 @@ export default function SignUp() {
                     </Text>
                 )}
                 <TouchableOpacity
-                    onPress={onSignupPress}
+                    onPress={onSignUpPress}
                     disabled={isLoading}
                     className='w-full bg-[#F0AD3D] py-4 rounded-xl items-center mb-4'
                 >
@@ -169,7 +169,7 @@ export default function SignUp() {
                 <View className='flex-row justify-center'>
                     <Text className='text-gray-500'>Already have an account? </Text>
                     <Link href="./sign-in">
-                        <Text className='text-blue-600 font-semibold'>Sign in</Text>
+                        <Text className='text-blue-600 font-semibold'>Sign In</Text>
                     </Link>
                 </View>
                 <View nativeID='clerk-captcha'></View>
