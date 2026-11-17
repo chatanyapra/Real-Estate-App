@@ -4,6 +4,7 @@ import { useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FeaturedCard from "../../../../components/FeaturedCard";
 import { supabase } from "../../../../lib/supabase";
 import { Property } from "../../../../types";
 
@@ -15,7 +16,7 @@ export default function HomeScreen() {
     const [recommended, setRecommended] = useState<Property[]>([]);
     const [loading, setLoading] = useState(true);
 
-    console.log(featured, recommended, "-----")
+    // console.log(featured, recommended, "-----")
 
     const fetchProperties = async () => {
         setLoading(true);
@@ -43,7 +44,7 @@ export default function HomeScreen() {
     );
 
     return (
-        <SafeAreaView className="flex-1 bg-gray-50">
+        <SafeAreaView className="flex-1 bg-gray-50 relative">
             <FlatList
                 data={recommended}
                 keyExtractor={(item) => item.id}
@@ -109,7 +110,7 @@ export default function HomeScreen() {
                                 <FlatList
                                     data={featured}
                                     keyExtractor={(item) => item.id}
-                                    renderItem={({ item }) => <Text>{item.title}</Text>}
+                                    renderItem={({ item }) => <FeaturedCard property={item}></FeaturedCard>}
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
                                     contentContainerStyle={{ paddingHorizontal: 20 }}
